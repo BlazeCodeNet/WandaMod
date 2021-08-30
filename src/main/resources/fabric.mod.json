@@ -1,30 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "example",
+  "id": "wanda",
   "version": "${version}",
 
-  "name": "Example",
-  "description": "A server-side mod template",
+  "name": "Wanda",
+  "description": "A server-side mod for selecting regions with a item-wand",
   "authors": [
     "BlazeCode",
     "Cosmix"
   ],
   "contact": {
     "homepage": "https://github.com/BlazeCodeNet",
-    "sources": "https://github.com/BlazeCodeNet/fabric-template"
+    "sources": "https://github.com/BlazeCodeNet/WandaMod"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/wanda/icon.png",
 
   "environment": "server",
   "entrypoints": {
     "server": [
-      "net.blazecode.example.ExampleMod"
+      "net.blazecode.wanda.WandaMod"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "wanda.mixins.json"
   ],
 
   "depends": {
