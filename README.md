@@ -1,9 +1,12 @@
-# Fabric Example Mod
+# Wanda Fabric Mod
+This is a FabricMC mod that allows you to use a custom item to select different regions by left/right clicking on blocks with the item.
 
-## Setup
+## Usage
+To get a wand use /wand in-game.
+You are required to have the ``wanda.command.wand`` permission node.
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+![Game Example](/web_resources/game_example.png)
 
-## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+## Developer API
+Of course, this will provide a API through the WandaAPI that will let you getPosOne and getPosTwo.
