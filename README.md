@@ -10,3 +10,17 @@ You are required to have the ``wanda.command.wand`` permission node.
 
 ## Developer API
 Of course, this will provide a API through the WandaAPI that will let you getPosOne and getPosTwo.
+## Repository Stuff
+Remember to include us in your build.gradle using the following information if necessary:
+
+### Repository Additon:
+```maven { url "https://api.modrinth.com/maven" }```
+
+### Actual dependency addition:
+```
+dependencies {
+	// Leave all the stuff thats already in here in your build.gradle alone!
+	// Add this to the end
+
+        modImplementation "maven.modrinth:wanda:<VERSION>"
+```
