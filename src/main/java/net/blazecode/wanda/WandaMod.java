@@ -12,8 +12,10 @@ import net.blazecode.wanda.registry.ItemRegister;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ActionResult;
@@ -40,6 +42,11 @@ public class WandaMod implements DedicatedServerModInitializer
 				WandCommand.register(dispatcher);
 			}
 		}));
+
+		ServerPlayConnectionEvents.DISCONNECT.register( ((handler, server) ->
+		{
+			WandaAPI.clearPlayer(handler.getPlayer().getUuid());
+		}) );
 
 		AttackBlockCallback.EVENT.register( ( (player, world, hand, pos, direction) ->
 		{

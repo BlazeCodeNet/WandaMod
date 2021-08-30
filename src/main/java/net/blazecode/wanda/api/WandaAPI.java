@@ -18,7 +18,11 @@ public class WandaAPI
         {
             selectionOneMap.replace(plrID, pos);
         }
-        player.sendMessage(getPrefixText().append(VanillaUtils.getText("Position 1 set to " + pos.toString())), false);
+        else
+        {
+            selectionOneMap.put(plrID, pos);
+        }
+        player.sendMessage(getPrefixText().append(VanillaUtils.getText("Position 1 set to " + pos.toShortString() + ")")), false);
     }
     public static void setPosTwo(BlockPos pos, ServerPlayerEntity player)
     {
@@ -27,15 +31,33 @@ public class WandaAPI
         {
             selectionTwoMap.replace(plrID, pos);
         }
-        player.sendMessage(getPrefixText().append(VanillaUtils.getText("Position 2 set to " + pos.toString())), false);
+        else
+        {
+            selectionTwoMap.put(plrID, pos);
+        }
+        player.sendMessage(getPrefixText().append(VanillaUtils.getText("Position 2 set to (" + pos.toShortString() + ")")), false);
+    }
+
+    public static void clearPlayer(UUID playerUUID)
+    {
+        selectionOneMap.remove(playerUUID);
+        selectionTwoMap.remove(playerUUID);
     }
 
     public static BlockPos getPosOne(ServerPlayerEntity player)
     {
+        if(!selectionOneMap.containsKey(player.getUuid()))
+        {
+            return null;
+        }
         return selectionOneMap.get(player.getUuid());
     }
     public static BlockPos getPosTwo(ServerPlayerEntity player)
     {
+        if(!selectionTwoMap.containsKey(player.getUuid()))
+        {
+            return null;
+        }
         return selectionTwoMap.get(player.getUuid());
     }
 
