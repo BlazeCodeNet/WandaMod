@@ -22,7 +22,7 @@ public class WandaAPI
         {
             selectionOneMap.put(plrID, pos);
         }
-        player.sendMessage(getPrefixText().append(VanillaUtils.getText("Position 1 set to " + pos.toShortString() + ")")), false);
+        player.sendMessage(getPrefixText().append(VanillaUtils.getText("Position 1 set to (" + pos.toShortString() + ")")), false);
     }
     public static void setPosTwo(BlockPos pos, ServerPlayerEntity player)
     {
